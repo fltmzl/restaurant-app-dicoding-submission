@@ -4,6 +4,34 @@
   margin: auto;
 }
 
+@mixin button {
+  cursor: pointer;
+  border: 2px solid black;
+  color: $black;
+  border-radius: 50px;
+  padding: 0.7rem 1.6rem;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 300ms ease-out;
+}
+
+@mixin primary-button {
+  @include button;
+  background-color: $primary;
+
+  &:hover {
+    background-color: transparent;
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+@mixin btn-small {
+  @include button;
+  padding: 0.5rem 1.6rem;
+  font-size: 0.9rem;
+}
+
 @media screen and (min-width: 576px) {
   .container {
     padding: 1rem 2rem;
