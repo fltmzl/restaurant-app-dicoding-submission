@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YumYard</title>
+  </head>
+  <body>
+    <a href="#mainContent" class="skip-link">Menuju ke konten</a>
+
+    <header class="header">
+      <div class="header__inner">
+        <a href="/" class="header__brand" title="brand logo">YumYard</a>
+        <button class="hamburger" type="button" aria-label="open navigation bar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hamburger__button">
+            <path
+              fill-rule="evenodd"
+              d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="/">Home</a></li>
+            <li class="nav__item"><a href="#">Favorit</a></li>
+            <li class="nav__item"><a href="https://www.linkedin.com/in/abdul-rizki/" target="_blank">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero__inner">
+        <h1 class="hero__title">Eksplorasi <span>Kulinermu </span>Bersama Kami</h1>
+        <p class="hero__desc">Kami mengajak Anda menjelajahi beragam cita rasa kuliner dari seluruh penjuru dunia. Nikmati katalog restoran kami yang lengkap dan buat pengalaman makan Anda menjadi tak terlupakan</p>
+        <a href="#katalog" class="hero__cta">Lihat Katalog</a>
+      </div>
+    </div>
+
+    <main id="mainContent">
+      <div id="katalog" class="restaurants container">
+        <h2 class="restaurants__title">Katalog Restoran</h2>
+        <div class="restaurant"></div>
+      </div>
+
+      <div class="testimonials container">
+        <h2 class="testimonials__title">Testimoni Pelanggan</h2>
+        <div class="testimonials__container">
+          <section class="testimonial">
+            <img class="testimonial__img" src="../public/images/profile-1.jpg" alt="profil user" />
+            <p class="testimonial__name">Rizky Ramadhan</p>
+            <blockquote class="testimonial__body">
+              <p class="testimonial__text">Website ini adalah salah satu yang terbaik yang pernah saya gunakan untuk mencari tempat makan. Saya sangat puas dengan semua fitur dan informasi yang disediakan.</p>
+              <img class="testimonial__icon" src="https://img.icons8.com/ios-glyphs/90/000000/quote-left.png" alt="quote-left-icon" />
+            </blockquote>
+          </section>
+          <section class="testimonial testimonial-black">
+            <img class="testimonial__img" src="../public/images/profile-2.jpg" alt="profil user" />
+            <p class="testimonial__name">Dwi Prasetyo</p>
+            <blockquote class="testimonial__body">
+              <p class="testimonial__text">Website ini membantu saya mengeksplorasi berbagai restoran di seluruh dunia dengan mudah. Saya dapat mencari restoran berdasarkan jenis masakan atau lokasi, yang sangat membantu.</p>
+              <img class="testimonial__icon" src="https://img.icons8.com/ios-glyphs/90/ecc92c/quote-left.png" alt="quote-left-icon" />
+            </blockquote>
+          </section>
+          <section class="testimonial">
+            <img class="testimonial__img" src="../public/images/profile-3.jpg" alt="profil user" />
+            <p class="testimonial__name">Budi Santoso</p>
+            <blockquote class="testimonial__body">
+              <p class="testimonial__text">Sangat mudah untuk menemukan restoran favorit saya di website ini. Saya suka bagaimana semuanya terorganisir dengan baik dan informasi tentang restoran sangat lengkap</p>
+              <img class="testimonial__icon" src="https://img.icons8.com/ios-glyphs/90/000000/quote-left.png" alt="quote-left-icon" />
+            </blockquote>
+          </section>
+        </div>
+      </div>
+
+      <div class="newsletter">
+        <h2 class="newsletter__title">Newsletter</h2>
+        <p class="newsletter__desc">Langganan gratis newsletter kami untuk mendapatkan info terbaru mengena katalog restoran kami</p>
+        <div class="input">
+          <input type="email" placeholder="contohemail@email.com" class="input__email" />
+          <button type="submit" class="input__submit">Langganan</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">Copyright &copy 2023 - YumYard</p>
+    </footer>
+  </body>
+</html>
