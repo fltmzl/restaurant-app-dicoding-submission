@@ -42,6 +42,45 @@ const createRestaurantItemComponent = (restaurant) => {
   `;
 };
 
+const createListComponent = (text) => {
+  return `<li>${text}</li>`;
+};
+
+const createCustomerReviewCard = (review) => {
+  return `
+    <div class="review">
+      <img class="review__icon" src="/icons/quote-yellow.svg" alt="quote icon" />
+
+      <p class="review__text">"${review.review}"</p>
+
+      <div class="review__user">
+        <span class="review__name">${review.name}</span>
+        <span class="review__date">${review.date}</span>
+      </div>
+    </div>
+  `;
+};
+
+const createLikedButton = () => {
+  return `
+    <button id="favoriteButton" class="favorite__liked" aria-label="remove from favorite">
+      <img class="favorite__icon" src="/icons/favorite-filled.svg" alt="" />
+    </button>
+  `;
+};
+
+const createLikeButton = () => {
+  return `
+    <button id="favoriteButton" class="favorite__like" aria-label="add to favorite">
+      <img class="favorite__icon" src="/icons/favorite-outlined.svg" alt="" />
+    </button>
+  `;
+};
+
 export {
   createRestaurantItemComponent,
+  createListComponent,
+  createCustomerReviewCard,
+  createLikedButton,
+  createLikeButton,
 };

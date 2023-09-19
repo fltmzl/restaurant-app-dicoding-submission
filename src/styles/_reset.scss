@@ -56,6 +56,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 #root,
 #__next {
   isolation: isolate;

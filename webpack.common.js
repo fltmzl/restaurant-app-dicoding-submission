@@ -52,6 +52,10 @@ module.exports = {
           from: path.resolve(__dirname, "src/public/data"),
           to: path.resolve(__dirname, "dist/data"),
         },
+        {
+          from: path.resolve(__dirname, "src/public/icons"),
+          to: path.resolve(__dirname, "dist/icons"),
+        },
       ],
     }),
   ],

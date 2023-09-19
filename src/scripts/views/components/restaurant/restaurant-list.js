@@ -14,12 +14,12 @@ class RestaurantList extends HTMLElement {
 
       if (this._data.error) {
         this.fallbackError();
+      } else {
+        this.render();
       }
-
-      this.render();
     } catch (error) {
       this.fallbackError();
-      console.error(error);
+      console.error(error.message);
     }
   }
 

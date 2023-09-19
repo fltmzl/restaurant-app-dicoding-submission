@@ -6,4 +6,9 @@ const limitText = (text, maxChar = 100) => {
   return `${limitedText}...`;
 };
 
-export { limitText };
+const arrayOfObjectToString = (arrayOfObject, separatorOfString = ",") => {
+  const arrayOfString = arrayOfObject.map((item) => item.name);
+  return arrayOfString.join(` ${separatorOfString} `);
+};
+
+export { limitText, arrayOfObjectToString };

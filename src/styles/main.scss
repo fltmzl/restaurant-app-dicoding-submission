@@ -1,9 +1,10 @@
-@import "variables.scss";
-@import "breakpoints.scss";
-@import "reset.scss";
-@import "components.scss";
-@import "section/header.scss";
-@import "section/hero.scss";
-@import "section/restaurant.scss";
-@import "section/testimonials.scss";
-@import "section/newsletter.scss";
+@import "variables";
+@import "breakpoints";
+@import "reset";
+@import "components";
+@import "global";
+
+@import "common/index";
+@import "home/index";
+@import "detail/index";
+@import "favorite/index";

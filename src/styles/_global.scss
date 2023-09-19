@@ -1,0 +1,13 @@
+.container {
+  padding: 1rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+
+  @include md {
+    padding: 1rem 2rem;
+  }
+}
+
+#mainContent {
+  min-height: 90vh;
+}
