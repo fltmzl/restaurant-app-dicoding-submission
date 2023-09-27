@@ -11,7 +11,6 @@ class FavoriteList extends HTMLElement {
     try {
       const restaurants = await FavoriteRestaurantIdb.getAll();
       this._restaurants = restaurants;
-      console.log(this._restaurants);
 
       if (!restaurants.length) {
         this.fallbackNoFavorite();
@@ -26,7 +25,7 @@ class FavoriteList extends HTMLElement {
 
   fallbackNoFavorite() {
     this.innerHTML = `
-      <div>There is no favorite</div>
+      <div class="text-gray">Belum ada restoran yang ditambahkan ke favorite</div>
     `;
   }
 

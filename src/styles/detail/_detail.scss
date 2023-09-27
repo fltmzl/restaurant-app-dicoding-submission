@@ -12,7 +12,7 @@
 
   #favoriteButton {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     right: 16px;
     z-index: 10;
     width: 50px;
@@ -23,6 +23,11 @@
     border-radius: 50%;
     background-color: $black;
     cursor: pointer;
+
+    &:focus {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
 
     .favorite__icon {
       width: 20px;

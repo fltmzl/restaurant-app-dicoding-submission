@@ -4,6 +4,7 @@ import { arrayOfObjectToString } from "../../../helpers";
 import UrlParser from "../../../routes/url-parser";
 import { createCustomerReviewCard, createListComponent } from "../../templates/template-creator";
 import "./favorite-button";
+import { createErrorFallback, createLoadingBrandIcon } from "../../templates/loading-creator";
 
 class DetailSection extends HTMLElement {
   constructor() {
@@ -30,18 +31,15 @@ class DetailSection extends HTMLElement {
   }
 
   fallbackError() {
-    this.innerHTML = `
-      <div>Something went wrong, check your connection</div>
-    `;
+    this.innerHTML = createErrorFallback();
   }
 
   fallbackLoading() {
-    this.innerHTML = `
-      <div>Loading</div>
-    `;
+    this.innerHTML = createLoadingBrandIcon();
   }
 
   connectedCallback() {
+    this.fallbackLoading();
     this.getInitialData();
   }
 
@@ -125,6 +123,15 @@ class DetailSection extends HTMLElement {
 
       <div class="reviews container">
         <h2 class="reviews__title">Customer Reviews</h2>
+        <form id="reviewsForm" class="reviews__form">
+          <input id="formReviewName" class="reviews__form__name" type="text" placeholder="Your name" />
+
+          <textarea id="formReviewText" class="reviews__form__body" placeholder="Write your review here..." cols="30" rows="5"></textarea>
+
+          <div id="reviewsFormError"></div>
+
+          <button class="reviews__form__submit" type="submit">Add Reviews</button>
+        </form>
         <div id="reviewsContainer" class="reviews__container">
         </div>
       </div>
@@ -133,6 +140,10 @@ class DetailSection extends HTMLElement {
     const foodsContainer = this.querySelector("#foodsContainer");
     const drinksContainer = this.querySelector("#drinksContainer");
     const reviewsContainer = this.querySelector("#reviewsContainer");
+    const reviewsForm = this.querySelector("#reviewsForm");
+    const formReviewName = this.querySelector("#formReviewName");
+    const formReviewText = this.querySelector("#formReviewText");
+    const reviewsFormError = this.querySelector("#reviewsFormError");
 
     foods.forEach((food) => {
       foodsContainer.innerHTML += createListComponent(food.name);
@@ -144,6 +155,41 @@ class DetailSection extends HTMLElement {
 
     customerReviews.forEach((review) => {
       reviewsContainer.innerHTML += createCustomerReviewCard(review);
+    });
+
+    const resetFormValue = () => {
+      formReviewName.value = "";
+      formReviewText.value = "";
+    };
+
+    reviewsForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      reviewsFormError.innerHTML = "";
+
+      try {
+        const data = await RestaurantApi.addReview({
+          id: this._data.restaurant.id,
+          name: formReviewName.value,
+          review: formReviewText.value,
+        });
+
+        if (data.error) {
+          reviewsFormError.classList.add("form-error");
+          reviewsFormError.innerHTML = "Review gagal ditambahkan, coba lagi bebrapa saat.";
+        } else {
+          reviewsFormError.classList.remove("form-error");
+          reviewsFormError.innerHTML = "Review berhasil ditambahkan";
+
+          reviewsContainer.innerHTML = "";
+          data.customerReviews.forEach((review) => {
+            reviewsContainer.innerHTML += createCustomerReviewCard(review);
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        resetFormValue();
+      }
     });
   }
 }

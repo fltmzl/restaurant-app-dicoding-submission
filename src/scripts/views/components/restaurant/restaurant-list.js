@@ -1,4 +1,5 @@
 import RestaurantApi from "../../../data/restaurant-api";
+import { createErrorFallback, createRestaurantItemSkeleton } from "../../templates/loading-creator";
 import { createRestaurantItemComponent } from "../../templates/template-creator";
 
 class RestaurantList extends HTMLElement {
@@ -24,15 +25,11 @@ class RestaurantList extends HTMLElement {
   }
 
   fallbackError() {
-    this.innerHTML = `
-      <div>Something went wrong, check your connection</div>
-    `;
+    this.innerHTML = createErrorFallback();
   }
 
   fallbackLoading() {
-    this.innerHTML = `
-      <div>Loading</div>
-    `;
+    this.innerHTML = createRestaurantItemSkeleton(4);
   }
 
   render() {

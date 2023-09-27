@@ -3,6 +3,33 @@
     margin-bottom: 1rem;
   }
 
+  .reviews__form {
+    display: flex;
+    max-width: 450px;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    .reviews__form__name,
+    .reviews__form__body {
+      @include form-input;
+    }
+
+    #reviewsFormError {
+      font-size: 0.85rem;
+
+      &.form-error {
+        color: #fe2020;
+      }
+    }
+
+    .reviews__form__submit {
+      @include primary-button;
+      @include btn-small;
+      width: fit-content;
+    }
+  }
+
   .reviews__container {
     display: grid;
     gap: 1.5rem;

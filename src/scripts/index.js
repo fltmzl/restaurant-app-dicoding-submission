@@ -1,6 +1,7 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "../styles/main.scss";
 import App from "./views/app";
+import swRegister from "./utils/sw-register";
 
 // eslint-disable-next-line no-unused-vars
 const app = new App({
@@ -9,23 +10,11 @@ const app = new App({
   content: document.querySelector("#mainContent"),
 });
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   app.renderPage();
+  await swRegister();
 });
 
 window.addEventListener("hashchange", () => {
   app.renderPage();
 });
-
-// // Load and render Restaurant data
-// const restaurantContainer = document.querySelector(".restaurant");
-
-// const renderRestaurantList = () => {
-//   restaurantContainer.innerHTML = "";
-//   data.restaurants.forEach((restaurant) => {
-//     const restaurantItemComponent = createRestaurantItemComponent(restaurant);
-//     restaurantContainer.innerHTML += restaurantItemComponent;
-//   });
-// };
-
-// document.addEventListener("DOMContentLoaded", renderRestaurantList);

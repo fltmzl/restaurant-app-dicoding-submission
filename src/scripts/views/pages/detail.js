@@ -1,3 +1,4 @@
+import { resetTabIndexFromStart } from "../../helpers";
 import "../components/detail/detail-section";
 
 const Detail = {
@@ -5,6 +6,10 @@ const Detail = {
     return `
       <detail-section></detail-section>
     `;
+  },
+
+  afterRender() {
+    resetTabIndexFromStart();
   },
 };
 

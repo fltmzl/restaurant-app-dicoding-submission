@@ -11,4 +11,8 @@ const arrayOfObjectToString = (arrayOfObject, separatorOfString = ",") => {
   return arrayOfString.join(` ${separatorOfString} `);
 };
 
-export { limitText, arrayOfObjectToString };
+const resetTabIndexFromStart = () => {
+  document.querySelector("#tabIndexStart").focus();
+};
+
+export { limitText, arrayOfObjectToString, resetTabIndexFromStart };

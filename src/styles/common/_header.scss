@@ -3,6 +3,7 @@
   padding: 0.5rem 1rem;
   position: absolute;
   top: -60px;
+  // top: 10px;
   left: 10px;
   font-size: 0.9rem;
   border-radius: 0.4rem;
@@ -37,10 +38,21 @@
     }
 
     .header__brand {
-      font-size: 1.4rem;
-      font-weight: 700;
-      padding: 1rem 0;
-      color: $black;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .header__brand__icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .header__brand__text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 1rem 0;
+        color: $black;
+      }
     }
 
     .nav {

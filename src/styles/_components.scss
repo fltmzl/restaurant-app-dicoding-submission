@@ -17,6 +17,7 @@
 @mixin primary-button {
   @include button;
   background-color: $primary;
+  border-color: $primary;
 
   &:hover {
     background-color: transparent;
@@ -25,8 +26,17 @@
   }
 }
 
+@mixin form-input {
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.7rem;
+  border: 1px solid #cbcbcb;
+
+  &:focus {
+    outline-color: $primary;
+  }
+}
+
 @mixin btn-small {
-  @include button;
-  padding: 0.5rem 1.6rem;
+  padding: 0.7rem 1.6rem;
   font-size: 0.9rem;
 }

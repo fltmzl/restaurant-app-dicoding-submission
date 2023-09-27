@@ -6,8 +6,9 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "build-serve": "npm run build && http-serve ./dist",
-    "test": "karma start"
+    "build-serve": "npm run build && http-server ./dist",
+    "test": "karma start",
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -39,10 +40,12 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "dependencies": {
     "idb": "^7.1.1",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "workbox-window": "^7.0.0"
   }
 }
