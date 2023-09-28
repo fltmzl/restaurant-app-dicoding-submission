@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -9,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
-    assetModuleFilename: "images/[name].[hash][ext]",
+    // assetModuleFilename: "images/[name].[hash][ext]",
     clean: true,
   },
   module: {
@@ -28,17 +29,17 @@ module.exports = {
           },
           {
             loader: "sass-loader",
-          }
+          },
         ],
       },
       {
         test: /\.html$/i,
         loader: "html-loader",
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      },
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   type: "asset/resource",
+      // },
     ],
   },
   plugins: [
@@ -46,11 +47,26 @@ module.exports = {
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
     }),
+
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/public/data"),
-          to: path.resolve(__dirname, "dist/data"),
+          from: path.resolve(__dirname, "src/public/"),
+          to: path.resolve(__dirname, "dist/"),
+        },
+      ],
+    }),
+
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: "./sw.bundle.js",
+      mode: "production",
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => url.href.startsWith("https://restaurant-api.dicoding.dev"),
+          handler: "StaleWhileRevalidate",
+          options: {
+            cacheName: "restaurant-api",
+          },
         },
       ],
     }),

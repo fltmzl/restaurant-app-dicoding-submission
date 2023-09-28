@@ -113,6 +113,12 @@
       .restaurant-item__desc {
         font-size: 0.9rem;
       }
+
+      .restaurant-item__cta {
+        @include primary-button;
+        @include btn-small;
+        margin-top: 1rem;
+      }
     }
   }
 }
