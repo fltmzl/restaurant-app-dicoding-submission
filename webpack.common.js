@@ -57,18 +57,18 @@ module.exports = {
       ],
     }),
 
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: "./sw.bundle.js",
-      mode: "production",
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }) => url.href.startsWith("https://restaurant-api.dicoding.dev"),
-          handler: "StaleWhileRevalidate",
-          options: {
-            cacheName: "restaurant-api",
-          },
-        },
-      ],
-    }),
+    // new WorkboxWebpackPlugin.GenerateSW({
+    //   swDest: "./sw.bundle.js",
+    //   mode: "production",
+    //   runtimeCaching: [
+    //     {
+    //       urlPattern: ({ url }) => url.href.startsWith("https://restaurant-api.dicoding.dev"),
+    //       handler: "StaleWhileRevalidate",
+    //       options: {
+    //         cacheName: "restaurant-api",
+    //       },
+    //     },
+    //   ],
+    // }),
   ],
 };
