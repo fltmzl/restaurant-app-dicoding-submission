@@ -5,6 +5,8 @@ import UrlParser from "../../../routes/url-parser";
 import { createCustomerReviewCard, createListComponent } from "../../templates/template-creator";
 import "./favorite-button";
 import { createErrorFallback, createLoadingBrandIcon } from "../../templates/loading-creator";
+import FavoriteRestaurantPresenter from "./favorite-restaurant-presenter";
+import FavoriteRestaurantIdb from "../../../data/restaurant-favorite-idb";
 
 class DetailSection extends HTMLElement {
   constructor() {
@@ -57,12 +59,11 @@ class DetailSection extends HTMLElement {
       },
       customerReviews,
       rating,
-      id,
     } = this._data.restaurant;
 
     this.innerHTML = `
       <div class="detail container">
-        <favorite-button data-restaurant-id="${id}"></favorite-button>
+        <div id="favoriteButtonContainer"></div>
 
         <div class="detail__picture">
           <div class="picture">
@@ -190,6 +191,34 @@ class DetailSection extends HTMLElement {
       } finally {
         resetFormValue();
       }
+    });
+
+    this.afterRender();
+  }
+
+  afterRender() {
+    const {
+      pictureId,
+      name,
+      address,
+      city,
+      description,
+      rating,
+      id,
+    } = this._data.restaurant;
+
+    FavoriteRestaurantPresenter.init({
+      favoriteRestaurantModel: FavoriteRestaurantIdb,
+      likeButtonContainer: document.getElementById("favoriteButtonContainer"),
+      restaurant: {
+        pictureId,
+        name,
+        address,
+        city,
+        description,
+        rating,
+        id,
+      },
     });
   }
 }
