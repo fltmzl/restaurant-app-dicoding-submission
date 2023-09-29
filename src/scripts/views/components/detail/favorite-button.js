@@ -42,7 +42,7 @@ class FavoriteButton extends HTMLElement {
   }
 
   connectedCallback() {
-    this._getRestaurantData();
+    // this._getRestaurantData();
     this.render();
   }
 
