@@ -29,7 +29,7 @@ class RestaurantList extends HTMLElement {
   }
 
   fallbackLoading() {
-    this.innerHTML = createRestaurantItemSkeleton(4);
+    this.innerHTML = createRestaurantItemSkeleton(20);
   }
 
   render() {

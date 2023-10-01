@@ -25,7 +25,7 @@ class FavoriteList extends HTMLElement {
 
   fallbackNoFavorite() {
     this.innerHTML = `
-      <div class="text-gray">Belum ada restoran yang ditambahkan ke favorite</div>
+      <div class="text-gray restaurant-item__not__found">Belum ada restoran yang ditambahkan ke favorite</div>
     `;
   }
 

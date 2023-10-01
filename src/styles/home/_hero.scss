@@ -1,21 +1,25 @@
 .hero {
-  background-image: url("../../public/images/heros/hero-image_4.jpg");
-  background-size: cover;
+  // background-image: url("../../public/images/heros/hero-image_4.jpg");
+  // background-size: cover;
+  // background-position: center;
+  position: relative;
   background-color: green;
   aspect-ratio: 9/16;
   display: grid;
   place-content: center;
-  position: relative;
-  background-position: center;
   z-index: 0;
+  overflow: hidden;
 
-  &::before {
-    content: "";
+  .hero__img {
     position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
     z-index: -1;
-    color: white;
+    user-select: none;
+    filter: brightness(0.6);
   }
 
   @include md {

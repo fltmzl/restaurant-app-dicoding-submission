@@ -9,7 +9,7 @@ class TestimonialSection extends HTMLElement {
         <h2 class="testimonials__title">Testimoni Pengunjung Website</h2>
         <div class="testimonials__container">
           <section class="testimonial">
-            <img class="testimonial__img" src="/images/profile-1.jpg" alt="profil user" />
+            <img class="testimonial__img" src="/images/profile-1.jpg"  width=70 height=70alt="profil user" />
             <p class="testimonial__name">Rizky Ramadhan</p>
             <blockquote class="testimonial__body">
               <p class="testimonial__text">Website ini adalah salah satu yang terbaik yang pernah saya gunakan untuk mencari tempat makan. Saya sangat puas dengan semua fitur dan informasi yang disediakan.</p>
@@ -17,7 +17,7 @@ class TestimonialSection extends HTMLElement {
             </blockquote>
           </section>
           <section class="testimonial testimonial-black">
-            <img class="testimonial__img" src="/images/profile-2.jpg" alt="profil user" />
+            <img class="testimonial__img" src="/images/profile-2.jpg" alt="profil user" width=70 height=70 />
             <p class="testimonial__name">Dwi Prasetyo</p>
             <blockquote class="testimonial__body">
               <p class="testimonial__text">Website ini membantu saya mengeksplorasi berbagai restoran di seluruh dunia dengan mudah. Saya dapat mencari restoran berdasarkan jenis masakan atau lokasi, yang sangat membantu.</p>
@@ -25,7 +25,7 @@ class TestimonialSection extends HTMLElement {
             </blockquote>
           </section>
           <section class="testimonial">
-            <img class="testimonial__img" src="/images/profile-3.jpg" alt="profil user" />
+            <img class="testimonial__img" src="/images/profile-3.jpg" alt="profil user" width=70 height=70 />
             <p class="testimonial__name">Budi Santoso</p>
             <blockquote class="testimonial__body">
               <p class="testimonial__text">Sangat mudah untuk menemukan restoran favorit saya di website ini. Saya suka bagaimana semuanya terorganisir dengan baik dan informasi tentang restoran sangat lengkap</p>
