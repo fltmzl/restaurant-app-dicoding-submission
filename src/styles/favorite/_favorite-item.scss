@@ -13,8 +13,10 @@
     .restaurant-item__img {
       border-radius: 1rem;
       width: 100%;
+      aspect-ratio: 15/9;
       height: 100%;
       object-fit: cover;
+      background-color: $gray-skeleton;
     }
 
     @mixin ratingAndCity {

@@ -6,8 +6,8 @@ const createRestaurantItemComponent = (restaurant) => {
   return `
     <article class="restaurant-item">
       <div class="restaurant-item__thumbnail">
-        <img class="restaurant-item__img" src="${CONFIG.BASE_MEDIUM_IMAGE_URL}/${restaurant.pictureId}" alt="Foto Restoran ${restaurant.name}" loading="lazy" width="425" height="365" />
-
+        <img class="restaurant-item__img" src="${CONFIG.BASE_SMALL_IMAGE_URL}/${restaurant.pictureId}" alt="Foto Restoran ${restaurant.name}" loading="lazy" width="425" height="365" />
+        
         <div class="restaurant-item__rating">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="restaurant-item__rating-icon">
             <path

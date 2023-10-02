@@ -3,7 +3,6 @@ import CONFIG from "../../../globals/config";
 import { arrayOfObjectToString } from "../../../helpers";
 import UrlParser from "../../../routes/url-parser";
 import { createCustomerReviewCard, createListComponent } from "../../templates/template-creator";
-import "./favorite-button";
 import { createErrorFallback, createLoadingBrandIcon } from "../../templates/loading-creator";
 import FavoriteRestaurantPresenter from "./favorite-restaurant-presenter";
 import FavoriteRestaurantIdb from "../../../data/restaurant-favorite-idb";
@@ -67,7 +66,7 @@ class DetailSection extends HTMLElement {
 
         <div class="detail__picture">
           <div class="picture">
-            <img class="picture__image" src="${CONFIG.BASE_LARGE_IMAGE_URL}/${pictureId}" alt="${`${name} restaurant`}" />
+            <img class="picture__image" src="${CONFIG.BASE_MEDIUM_IMAGE_URL}/${pictureId}" alt="${`${name} restaurant`}" />
           </div>
         </div>
 
@@ -125,9 +124,9 @@ class DetailSection extends HTMLElement {
       <div class="reviews container">
         <h2 class="reviews__title">Customer Reviews</h2>
         <form id="reviewsForm" class="reviews__form">
-          <input id="formReviewName" class="reviews__form__name" type="text" placeholder="Your name" />
+          <input id="formReviewName" class="reviews__form__name" type="text" placeholder="Your name" name="username" required />
 
-          <textarea id="formReviewText" class="reviews__form__body" placeholder="Write your review here..." cols="30" rows="5"></textarea>
+          <textarea id="formReviewText" class="reviews__form__body" placeholder="Write your review here..." cols="30" rows="5" name="body" required></textarea>
 
           <div id="reviewsFormError"></div>
 

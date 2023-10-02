@@ -21,6 +21,18 @@ const Home = {
 
   afterRender() {
     resetTabIndexFromStart();
+
+    const linkImageMedium = document.createElement("link");
+    linkImageMedium.as = "image";
+    linkImageMedium.href = "/images/heros/hero-image-medium.webp";
+    linkImageMedium.rel = "preload";
+    document.head.appendChild(linkImageMedium);
+
+    const linkImageLarge = document.createElement("link");
+    linkImageLarge.as = "image";
+    linkImageLarge.href = "/images/heros/hero-image-large.webp";
+    linkImageLarge.rel = "preload";
+    document.head.appendChild(linkImageLarge);
   },
 };
 
