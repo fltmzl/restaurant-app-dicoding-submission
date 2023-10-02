@@ -3,8 +3,11 @@ class HeroSection extends HTMLElement {
     this.innerHTML = `
       <div class="hero">
         <picture>
+          <source media="(max-width: 400px)" srcset="/images/heros/hero-image-small.webp" type="image/webp" />
           <source media="(max-width: 400px)" srcset="/images/heros/hero-image-small.jpg" type="image/jpeg" />
+          <source media="(max-width: 800px)" srcset="/images/heros/hero-image-medium.webp" type="image/webp" />
           <source media="(max-width: 800px)" srcset="/images/heros/hero-image-medium.jpg" type="image/jpeg" />
+          <source media="(max-width: 2000px)" srcset="/images/heros/hero-image-large.webp" type="image/webp" />
           <img class="hero__img" src="/images/heros/hero-image-large.jpg" alt="hero-image" draggable="false" />
         </picture>
         <div class="hero__inner">
