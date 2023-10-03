@@ -7,6 +7,7 @@ const ImageminMozjpeg = require("imagemin-mozjpeg");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const HtmlWebpackInjectPreload = require("@principalstudio/html-webpack-inject-preload");
 
 module.exports = {
   entry: {
@@ -77,11 +78,40 @@ module.exports = {
       template: path.resolve(__dirname, "src/templates/index.html"),
     }),
 
+    new HtmlWebpackInjectPreload({
+      files: [
+        {
+          match: /hero-image-small\.webp$/,
+          attributes: {
+            as: "image",
+            media: "(max-width: 400px)",
+          },
+        },
+        {
+          match: /hero-image-medium\.webp$/,
+          attributes: {
+            as: "image",
+            media: "(max-width: 800px)",
+          },
+        },
+        {
+          match: /hero-image-large\.webp$/,
+          attributes: {
+            as: "image",
+            media: "(max-width: 2000px)",
+          },
+        },
+      ],
+    }),
+
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
+          globOptions: {
+            ignore: ["**/fonts/**"],
+          },
         },
       ],
     }),
@@ -89,7 +119,7 @@ module.exports = {
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
-          quality: 50,
+          quality: 60,
           progressive: true,
         }),
       ],
