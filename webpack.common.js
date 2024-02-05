@@ -61,10 +61,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
       // {
       //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
       //   type: "asset/resource",
@@ -82,6 +78,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
+          globOptions: {
+            ignore: ["**/fonts/**"],
+          },
         },
       ],
     }),
@@ -89,7 +88,7 @@ module.exports = {
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
-          quality: 50,
+          quality: 60,
           progressive: true,
         }),
       ],
